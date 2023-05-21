@@ -95,12 +95,43 @@ const checkDiagonal = ()=>{
 
 function checkTie() {
     // tie
-    const values = [];
-    boxes.forEach(block => values.push(block.textContent))
-    if (!values.includes("")) {
-        playerRow.textContent = "Tie !";
+    // const values = [];
+    // boxes.forEach(block => values.push(block.textContent))
+    // if (!values.includes("")) {
+    //     playerRow.textContent = "Tie !";
+    //     boxes.forEach(block => block.style.pointerEvents = 'none');
+    // }
+    // ================
+    let row1 = boxes[0].textContent == boxes[1].textContent && 
+    boxes[0].textContent == boxes[2].textContent && boxes[0].textContent !== "";
+    let row2 = boxes[3].textContent == boxes[4].textContent &&
+    boxes[3].textContent == boxes[5].textContent && boxes[3].textContent !== ""
+    let row3 = boxes[6].textContent == boxes[7].textContent &&
+    boxes[6].textContent == boxes[8].textContent && boxes[6].textContent !== ""
+
+    let col1 = boxes[0].textContent == boxes[3].textContent &&
+    boxes[0].textContent == boxes[6].textContent && boxes[0].textContent !== ''
+    let col2 = boxes[1].textContent == boxes[4].textContent &&
+    boxes[1].textContent == boxes[7].textContent && boxes[1].textContent !== ''
+    let col3 = boxes[2].textContent == boxes[5].textContent &&
+    boxes[2].textContent == boxes[8].textContent && boxes[2].textContent !== ''
+
+    let diag1 = boxes[0].textContent == boxes[4].textContent && 
+    boxes[0].textContent == boxes[8].textContent && boxes[0].textContent !== ''
+    let diag2 = boxes[2].textContent == boxes[4].textContent && 
+    boxes[2].textContent == boxes[6].textContent && boxes[2].textContent !== ''
+    // boxes.forEach(box=>{
+
+    // })
+    if(!row1 && !row2 && !row3 && !col1 && !col2 && !col3 && !diag1 && !diag2 &&
+        boxes[0].textContent !== '' && boxes[1].textContent !== '' &&
+         boxes[2].textContent !== '' && boxes[3].textContent !== '' && 
+          boxes[4].textContent !== '' && boxes[5].textContent !== '' &&
+          boxes[6].textContent !== '' && boxes[7].textContent !== '' && boxes[8].textContent !== '' ){
+        playerRow.textContent = 'Tie !'
         boxes.forEach(block => block.style.pointerEvents = 'none');
     }
+    
 }
 startGame();
 

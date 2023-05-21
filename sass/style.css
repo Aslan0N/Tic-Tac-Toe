@@ -40,6 +40,7 @@ h1, h3 {
   font-weight: 500;
   transition: all 0.1s;
   color: #222222;
+  cursor: pointer;
 }
 .container-game .box:hover {
   background-color: rgba(168, 223, 241, 0.2117647059);
